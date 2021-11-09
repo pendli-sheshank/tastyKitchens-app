@@ -1,6 +1,8 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 
+import {Redirect} from 'react-router-dom'
+
 import './index.css'
 
 class Login extends Component {
@@ -9,7 +11,6 @@ class Login extends Component {
     password: '',
     showSubmitError: false,
     errorMsg: '',
-    isPasswordVisible: false,
   }
 
   onChangeUsername = event => {
@@ -21,15 +22,13 @@ class Login extends Component {
   }
 
   onSubmitSuccess = jwtToken => {
-    Cookies.set(
-      'jwt_token',
-      jwtToken,
-      {
-        expires: 30,
-      },
-    )
+    Cookies.set('jwt_token', jwtToken, {
+      expires: 30,
+      path: '/',
+    })
     const {history} = this.props
     history.replace('/')
+    return <Redirect to="/" />
   }
 
   onSubmitFailure = errorMsg => {
@@ -53,8 +52,6 @@ class Login extends Component {
     } else {
       this.onSubmitFailure(data.error_msg)
     }
-    const {history} = this.props
-    history.replace('/')
   }
 
   onClickCheckbox = () => {
@@ -62,7 +59,7 @@ class Login extends Component {
   }
 
   renderPasswordField = () => {
-    const {password, isPasswordVisible} = this.state
+    const {password} = this.state
     return (
       <>
         <label className="input-label" htmlFor="pass">
@@ -76,27 +73,14 @@ class Login extends Component {
             value={password}
             onChange={this.onChangePassword}
           />
-          {isPasswordVisible && (
-            <input
-              type="text"
-              id="pass"
-              className="password-input-field"
-              value={password}
-              onChange={this.onChangePassword}
-            />
-          )}
         </div>
         <div className="checkbox-container">
           <input
             type="checkbox"
             id="show-password"
-            checked={isPasswordVisible}
             onChange={this.onClickCheckbox}
             className="eye-check"
           />
-          <label htmlFor="show-password" className="input-label">
-            Show Password
-          </label>
         </div>
       </>
     )

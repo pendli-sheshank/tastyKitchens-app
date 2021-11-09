@@ -39,6 +39,7 @@ const Footer = () => (
         />
       </a>
     </div>
+    <p className="copyright">sheshank &copy;</p>
   </div>
 )
 

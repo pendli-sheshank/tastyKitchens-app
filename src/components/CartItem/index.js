@@ -21,9 +21,9 @@ const CartItem = props => (
         decreaseQuantity(id)
       }
       return (
-        <li className="cart-item">
+        <li testid="cartItem" className="cart-item">
           <img className="cart-product-image" src={imageUrl} alt={name} />
-          <div className="cart-item-details-container" testid="cartItem">
+          <div className="cart-item-details-container">
             <div className="cart-product-title-brand-container">
               <h1 className="cart-product-title">{name}</h1>
             </div>

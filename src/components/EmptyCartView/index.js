@@ -5,7 +5,7 @@ import './index.css'
 const EmptyCartView = () => (
   <div className="cart-empty-view-container">
     <img
-      src="https://res.cloudinary.com/dpnobkqmw/image/upload/v1634289365/Layer_2_jt1ls9.png"
+      src="https://res.cloudinary.com/sheshank/image/upload/v1635494957/tastykitchen/OBJECTSnoOrder_mhnmaf.jpg"
       className="cart-empty-image"
       alt="empty cart"
     />

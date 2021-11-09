@@ -21,7 +21,7 @@ const Header = props => {
         <Link to="/">
           <img
             className="website-logo"
-            src="https://res.cloudinary.com/dpnobkqmw/image/upload/v1634189323/Group_7420_p9exzb.png"
+            src="https://res.cloudinary.com/sheshank/image/upload/v1635494956/tastykitchen/Vector_xoooqg.png"
             alt="website logo"
           />
         </Link>
